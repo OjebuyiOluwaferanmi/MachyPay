@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/font-awesome.css" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" href="images/Machypay logo svg.svg" />
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <title>Machy Pay</title>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+      <div class="container">
+        <a href="index.html" class="navbar-brand">
+          <img src="images/Machypay logo.png" alt="" width="225" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link fw-semibold">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="#services" class="nav-link fw-semibold">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a href="#details" class="nav-link fw-semibold">Services</a>
+            </li>
+            <li class="nav-item">
+              <a href="#details" class="nav-link fw-semibold">Payments</a>
+            </li>
+            <li class="nav-item">
+              <a href="#blog" class="nav-link fw-semibold">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a
+                href="Sign in.html"
+                class="nav-link btn btn-outline-light fw-semibold px-4 mx-4 me-md-2 mb-3 mb-md-0"
+                style="min-width: 150px"
+                >Sign Up</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="Sign in.html"
+                class="nav-link btn btn-outline-light fw-semibold px-4 mx-4"
+                style="min-width: 150px"
+                >Sign In</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Pop up onload -->
+    <div
+      class="modal fade"
+      id="welcomeModal"
+      tabindex="-1"
+      aria-labelledby="welcomeModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5
+              class="modal-title"
+              id="welcomeModalLabel"
+              style="color: #264aca; font-weight: 800"
+            >
+              Welcome to MachyPay
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>
+              Thank you for visiting MachyPay. We're here to help you manage
+              your finances effortlessly and securely.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button
+              style="
+                background-color: #859ae4;
+                box-shadow: -3px 4px 0px 0px #264aca;
+                border: 3px solid #264aca;
+                border-radius: 1em;
+                background-color: #051551;
+                color: #fff;
+                font-weight: bolder;
+              "
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+      <!-- Hero -->
+      <div class="hero text-white pt-7">
+        <div class="container-xl">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="image-container mb-5 px-4">
+                <img src="images/pic.png" alt="" class="img-fluid" />
+              </div>
+            </div>
+            <div class="col-md-6" id="home">
+              <div
+                class="text-container p-4 d-flex flex-column justify-content-center h-100 mb-5"
+              >
+                <h1 class="display-3 fw-bold">
+                  Navigating The
+                  <span class="autotype" style="color: #8ea6ff"></span>
+                </h1>
+                <p class="lead">
+                  Welcome to MachyPay, your go-to mobile banking solution!
+                  Experience the convenience of managing your finances right
+                  from your pocket. With intuitive navigation, real-time
+                  updates, and robust security features, you can easily check
+                  your balance, transfer funds, pay bills, and track your
+                  spending.
+                </p>
+
+                <!-- Form -->
+                <div class="form-container text-center">
+                  <form>
+                    <div class="d-grid">
+                      <a
+                        class="btn text-white mt-4 align-self-start"
+                        style="
+                          background-image: linear-gradient(#3470fa, #313ed7);
+                        "
+                        data-bs-toggle="modal"
+                        data-bs-target="#download1"
+                        >DOWNLOAD NOW</a
+                      >
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <svg
+        class="frame-decoration"
+        data-name="Layer 2"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+        viewBox="0 0 1920 192.275"
+      >
+        <defs>
+          <style>
+            .cls-1 {
+              fill: #f3f6f9;
+            }
+          </style>
+        </defs>
+        <title>frame-decoration</title>
+        <path
+          class="cls-1"
+          d="M0,158.755s63.9,52.163,179.472,50.736c121.494-1.5,185.839-49.738,305.984-49.733,109.21,0,181.491,51.733,300.537,50.233,123.941-1.562,225.214-50.126,390.43-50.374,123.821-.185,353.982,58.374,458.976,56.373,217.907-4.153,284.6-57.236,284.6-57.236V351.03H0V158.755Z"
+          transform="translate(0 -158.755)"
+        />
+      </svg>
+    </header>
+
+    <!-- Modal 1 -->
+    <div id="download1" class="modal fade">
+      <div class="modal-dialog modal-lg mt-7">
+        <div class="modal-content p-5">
+          <div class="row">
+            <div class="col-lg-6"></div>
+            <div class="col-lg-6">
+              <div class="text-container">
+                <h2 class="display-6" style="color: #264aca; font-weight: 800">
+                  Unlock Your Banking Experience
+                </h2>
+                <p>
+                  Ready to take control of your finances? Our banking app equips
+                  you with the tools and insights to manage your money
+                  effortlessly. Unlock a smarter way to save, spend, and
+                  grow—your financial future starts here!
+                </p>
+                <a
+                  href="https://www.instagram.com/rtu_arena61/"
+                  class="btn btn-primary text-white"
+                  >Download</a
+                >
+                <button class="btn btn-light" data-bs-dismiss="modal">
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Icons -->
+    <section class="icons bg-light pb-5" id="services">
+      <div class="container-xl">
+        <div class="row hstack g-4">
+          <div class="col-md-3 d-flex gap-4">
+            <div>
+              <h2 class="fw-bold" style="color: #264aca; font-size: 30px">
+                Number of Happy Users
+                <div class="number">
+                  <span
+                    id="counter"
+                    data-target="900"
+                    style="font-size: 80px; color: #264aca"
+                    >0</span
+                  >
+                  <span style="font-size: 80px; color: #264aca">K+</span>
+                </div>
+              </h2>
+            </div>
+          </div>
+          <div class="col-md-3 d-flex gap-4">
+            <i class="fas fa-user fa-3x text-primary"></i>
+            <div>
+              <h5 class="fw-bold" style="color: #264aca">
+                Unlock Unlimited Features
+              </h5>
+              <p class="text-muted">
+                Discover the key to unleashing your true banking potential. Our
+                platform provides the fastest and secure transactions
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-3 d-flex gap-4">
+            <i class="fas fa-rocket fa-3x text-secondary"></i>
+            <div>
+              <h5 class="fw-bold" style="color: #264aca">
+                Integrated investment options
+              </h5>
+              <p class="text-muted">
+                Take your investment to new heights with our great investment
+                rate for accumulating interest and increasing your wealth.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-3 d-flex gap-4">
+            <i class="fas fa-dollar fa-3x text-primary"></i>
+            <div>
+              <h5 class="fw-bold" style="color: #264aca">
+                Exclusive offers or cashback deals.
+              </h5>
+              <p class="text-muted">
+                Unlock exclusive rewards with every transaction! Enjoy cashback
+                deals and special offers tailored just for you. Your everyday
+                banking just got more rewarding—start saving while you spend!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Details -->
+    <section id="details" class="details my-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div
+              class="text-container d-flex flex-column justify-content-center h-100"
+            >
+              <h2 class="display-6" style="color: #264aca; font-weight: 800">
+                Unlock Your Banking Experience
+              </h2>
+              <p>
+                Ready to take control of your finances? Our banking app equips
+                you with the tools and insights to manage your money
+                effortlessly. Unlock a smarter way to save, spend, and grow—your
+                financial future starts here!
+              </p>
+              <ul class="list-group list-group-flush lh-lg">
+                <li class="list-group-item">
+                  <i class="fas fa-square text-primary"></i>
+                  <strong style="color: #264aca"
+                    >Empower Your Financial Journey:</strong
+                  >
+                  Our banking app helps you take charge of your finances with
+                  ease and confidence.
+                </li>
+                <li class="list-group-item">
+                  <i class="fas fa-square text-primary"></i>
+                  <strong style="color: #264aca">Maximize Your Savings:</strong>
+                  Access tools to optimize your spending and achieve your goals.
+                </li>
+                <li class="list-group-item">
+                  <i class="fas fa-square text-primary"></i>
+                  <strong style="color: #264aca"
+                    >Smart Money Strategies:</strong
+                  >
+                  Explore investment options, budgeting tips, and exclusive
+                  rewards to grow your wealth effortlessly.
+                </li>
+              </ul>
+              <a
+                class="btn btn-primary text-white mt-4 align-self-start"
+                data-bs-toggle="modal"
+                data-bs-target="#modal1"
+                >More Features</a
+              >
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="image-container p-5">
+              <img src="images/sbankmachypay.png" alt="" class="img-fluid" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal 1 -->
+    <div id="modal1" class="modal fade">
+      <div class="modal-dialog modal-lg mt-7">
+        <div class="modal-content p-5">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="image-container">
+                <img src="images/pic.png" alt="" class="img-fluid" />
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="text-container">
+                <h2 class="display-6">Unlock Your Banking Experience</h2>
+                <p>
+                  Ready to take control of your finances? Our banking app equips
+                  you with the tools and insights to manage your money
+                  effortlessly. Unlock a smarter way to save, spend, and
+                  grow—your financial future starts here!
+                </p>
+                <ul class="list-group list-group-flush lh-lg">
+                  <li class="list-group-item">
+                    <i class="fas fa-square text-primary"></i>
+                    <strong>Empower Your Financial Journey:</strong> Our banking
+                    app helps you take charge of your finances with ease and
+                    confidence.
+                  </li>
+                  <li class="list-group-item">
+                    <i class="fas fa-square text-primary"></i>
+                    <strong>Maximize Your Savings:</strong> Access tools to
+                    optimize your spending and achieve your goals.
+                  </li>
+                  <li class="list-group-item">
+                    <i class="fas fa-square text-primary"></i>
+                    <strong>Smart Money Strategies:</strong> Explore investment
+                    options, budgeting tips, and exclusive rewards to grow your
+                    wealth effortlessly.
+                  </li>
+                </ul>
+                <a href="" class="btn btn-primary text-white">Free Download</a>
+                <button class="btn btn-light" data-bs-dismiss="modal">
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Statement -->
+    <section class="statement mb-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div
+              class="text-container p-5 rounded-5"
+              style="
+                background: linear-gradient(to left, #859ae4 0%, #264aca 100%);
+                box-shadow: 0 4px 10px #264aca;
+              "
+            >
+              <h2 style="color: white; font-weight: 800">
+                Master the Art of Financial Excellence
+              </h2>
+              <p style="color: white">
+                Transform your banking experience from routine transactions to a
+                journey of financial empowerment with our app. This all-in-one
+                solution is your gateway to smarter money management. Discover
+                tools to optimize savings, explore investment opportunities, and
+                access exclusive cashback rewards. Gain insights into building
+                financial stability, unlocking premium benefits, and maximizing
+                your earning potential. Take control of your financial future
+                and reap the rewards of a smarter way to bank!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Details 2 -->
+    <section class="details my-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="image-container p-5">
+              <img
+                src="images/michael's assignment.jpg"
+                alt=""
+                class="img-fluid"
+              />
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div
+              class="text-container d-flex flex-column justify-content-center h-100"
+            >
+              <h2 class="display-6" style="color: #264aca; font-weight: 600">
+                Unlock Your Banking Experience
+              </h2>
+              <p>
+                Ready to take control of your finances? Our banking app equips
+                you with the tools and insights to manage your money
+                effortlessly. Unlock a smarter way to save, spend, and grow—your
+                financial future starts here!
+              </p>
+              <ul class="list-group list-group-flush lh-lg">
+                <li class="list-group-item">
+                  <i class="fas fa-square text-primary"></i>
+                  <strong style="color: #264aca"
+                    >Smart Money Strategies:
+                  </strong>
+                  Our banking app helps you take charge of your finances with
+                  ease and confidence.
+                </li>
+                <li class="list-group-item">
+                  <i class="fas fa-square text-primary"></i>
+                  <strong style="color: #264aca">Spark Creativity:</strong>
+                  Access tools to optimize your spending and achieve your goals.
+                </li>
+                <li class="list-group-item">
+                  <i class="fas fa-square text-primary"></i>
+                  <strong style="color: #264aca"
+                    >Empower Your Financial Journey:
+                  </strong>
+                  Explore investment options, budgeting tips, and exclusive
+                  rewards to grow your wealth effortlessly.
+                </li>
+              </ul>
+              <a
+                class="btn btn-primary text-white mt-4 align-self-start"
+                data-bs-toggle="modal"
+                data-bs-target="#modal2"
+                >Learn More</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal 2 -->
+    <div id="modal2" class="modal fade">
+      <div class="modal-dialog modal-lg mt-7">
+        <div class="modal-content p-5">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="image-container">
+                <img src="images/sbankmachypay.png" alt="" class="img-fluid" />
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="text-container">
+                <h3 class="display-6">Unlock Your Banking Experience</h3>
+
+                <p>
+                  Ready to take control of your finances? Our banking app equips
+                  you with the tools and insights to manage your money
+                  effortlessly. Unlock a smarter way to save, spend, and
+                  grow—your financial future starts here!
+                </p>
+                <ul class="list-group list-group-flush lh-lg mb-3">
+                  <li class="list-group-item">
+                    <i class="fas fa-square text-primary"></i>
+                    <strong style="color: #264aca"
+                      >Smart Money Strategies:</strong
+                    >
+                    Explore investment options, budgeting tips, and exclusive
+                    rewards to grow your wealth effortlessly.
+                  </li>
+                  <li class="list-group-item">
+                    <i class="fas fa-square text-primary"></i>
+                    <strong style="color: #264aca"
+                      >Empower Your Financial Journey:</strong
+                    >
+                    Access tools to optimize your spending and achieve your
+                    goals.
+                  </li>
+                  <li class="list-group-item">
+                    <i class="fas fa-square text-primary"></i>
+                    <strong style="color: #264aca">Spark Creativity:</strong>
+                    Explore investment options, budgeting tips, and exclusive
+                    rewards to grow your wealth effortlessly.
+                  </li>
+                </ul>
+                <a href="" class="btn btn-primary text-white">Free Download</a>
+                <button class="btn btn-light" data-bs-dismiss="modal">
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonials -->
+    <section class="testimonials mb-8" id="blog">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <img
+              src="images/cbn3.jpg"
+              alt=""
+              class="rounded-circle mb-3"
+              style="width: 130px"
+            />
+            <p class="lead fst-italic">
+              "I've been with MACHYPAY Bank for over 2 years, and I couldn't be
+              happier with their services. The mobile app is super easy to use,
+              and I can do all my banking from the comfort of my home. I
+              especially love how quick and efficient their customer support
+              team is when I need help."
+            </p>
+            <p class="fw-bold" style="color: #264aca">
+              Ojebuyi Michael - Nigeria, NG <br />★ ★ ★ ★ ★
+            </p>
+          </div>
+
+          <div class="col-md-4 text-center">
+            <img
+              src="images/cbn2.jpg"
+              style="width: 130px"
+              alt=""
+              class="rounded-circle mb-3"
+            />
+            <p class="lead fst-italic">
+              "I recently applied for a personal loan, and the process was
+              seamless and stress-free. I highly recommend MACHYPAY Bank to
+              anyone looking for reliable and convenient banking services!""
+            </p>
+            <p class="fw-bold" style="color: #264aca">
+              Ojebuyi Michael - Nigeria, NG <br />★★★☆☆
+            </p>
+          </div>
+
+          <div class="col-md-4 text-center">
+            <img
+              src="images/cbn3.jpg"
+              style="max-width: 130px"
+              class="rounded-circle mb-3"
+            />
+            <p class="lead fst-italic">
+              "I've been a customer of MACHYPAY Bank for a while now, and
+              overall, my experience has been positive. Their online banking
+              system is quite user-friendly, and I've never had an issue with
+              their services."
+            </p>
+            <p class="fw-bold" style="color: #264aca">
+              Ojebuyi Michael - Nigeria, NG <br />★☆☆☆☆
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Download -->
+    <section class="download">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-5 mx-auto">
+            <div class="image-container mt-n6 mb-5 mx-auto">
+              <img
+                src="images/machypay overview.png"
+                alt=""
+                style="height: 600px"
+                class="img-fluid bordered-8px shadow mx-auto"
+              />
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div
+              class="text-container text-white d-flex flex-column justify-content-center h-100 mb-5"
+            >
+              <h2 class="fw-bold">Stay Informed with Machypay!</h2>
+              <p>
+                Subscribe to our newsletter and receive instant updates on the
+                latest banking features, exclusive offers, and important app
+                announcements. Stay ahead with Machypay and never miss out on
+                new opportunities and services. Sign up now to keep your
+                financial journey on track!
+              </p>
+
+              <!-- Form -->
+              <form id="subscribeForm">
+                <div class="input-group mb-3">
+                  <input
+                    type="email"
+                    class="form-control input-for-gmail"
+                    placeholder="Email Address"
+                  />
+                  <button
+                    class="btn btn-primary subscribe text-white rounded-end"
+                  >
+                    Subscribe
+                  </button>
+                </div>
+                <div id="popup" class="popup-message"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social -->
+    <section class="social text-bg-dark py-6 overflow-hidden">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 offset-md-3 text-center fs-4">
+            <p>
+              Stay connected and join our vibrant community. For any inquiries
+              or assistance, feel free to reach out to us
+            </p>
+            <div class="social-icons d-flex justify-content-center gap-4">
+              <a
+                href="https://www.instagram.com/rtu_arena61/"
+                style="color: #7694ff"
+                ><i class="fab fa-facebook fa-2x"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/rtu_arena61/"
+                style="color: #7694ff"
+                ><i class="fab fa-twitter fa-2x"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/rtu_arena61/"
+                style="color: #7694ff"
+                ><i class="fab fa-instagram fa-2x"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/rtu_arena61/"
+                style="color: #7694ff"
+                ><i class="fab fa-linkedin fa-2x"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/rtu_arena61/"
+                style="color: #7694ff"
+                ><i class="fab fa-pinterest fa-2x"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="border-top border-primary text-bg-dark text-white py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <ul class="nav">
+              <li class="nav-item">
+                <a href="index.html" class="nav-link link-light">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="#details" class="nav-link link-light">Details</a>
+              </li>
+              <li class="nav-item">
+                <a href="contact.html" class="nav-link link-light">Contact</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <p class="text-end d-none d-md-block">
+              Copyright &copy; OJEBUYI MICHAEL 2025
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
