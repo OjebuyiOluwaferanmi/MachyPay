@@ -28,7 +28,7 @@
         });
       })();
     </script>
-    <title>Free E-Book | Start Your Own Blog</title>
+    <title>MachyPay Sign Up</title>
   </head>
   <body>
     <style>
@@ -470,26 +470,23 @@
           isValid = false;
         }
 
-        // If the form is valid, proceed with sending the email
         if (isValid) {
           const params = {
             sendername: sendername.value,
             email: email.value,
           };
 
-          const serviceID = "service_jwlz6kd"; // Replace with your actual Service ID
-          const templateID = "template_e6m6jkc"; // Replace with your actual Template ID
+          const serviceID = "service_jwlz6kd";
+          const templateID = "template_e6m6jkc";
 
-          // Send email using EmailJS
           emailjs
             .send(serviceID, templateID, params)
             .then((res) => {
               showPopup("Email Sent Successfully!", "success");
-              document.querySelector("#signup-form").reset(); // Clear form after success
+              document.querySelector("#signup-form").reset();
 
-              // Redirect to homepage after 2 seconds
               setTimeout(() => {
-                window.location.href = "/"; // This will take the user to the homepage
+                window.location.href = "/";
               }, 2000);
             })
             .catch((error) => {
@@ -512,15 +509,13 @@
         const popup = document.querySelector("#popup-message");
         const popupText = document.querySelector("#popup-text");
 
-        // Set the popup text and class based on success/error type
         popupText.textContent = message;
         popup.classList.remove("d-none", "success", "error");
         popup.classList.add(type);
 
-        // Automatically show the popup and hide it after 5 seconds
-        popup.style.display = "block"; // Show the popup
+        popup.style.display = "block";
         setTimeout(() => {
-          popup.style.display = "none"; // Hide the popup after 5 seconds
+          popup.style.display = "none";
         }, 5000);
       }
     </script>

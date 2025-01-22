@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   });
 
- 
+
   function showPopup(message, type) {
     popup.textContent = message;
     popup.className = `popup-message ${type}`;
