@@ -12,6 +12,22 @@
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="icon" href="images/Machypay logo svg.svg" />
+    <script
+      type="text/javascript"
+      src="https://cdn.emailjs.com/dist/email.min.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "YOUR_PUBLIC_KEY",
+        });
+      })();
+    </script>
     <title>Free E-Book | Start Your Own Blog</title>
   </head>
   <body>
@@ -32,6 +48,31 @@
         box-shadow: -1px -1px 8px #3470fa;
         transition: 0.1s;
         transition-property: box-shadow;
+      }
+      #popup-message {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #28a745; /* Green for success */
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        display: none;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 9999;
+      }
+
+      #popup-message.error {
+        background-color: #dc3545; /* Red for error */
+      }
+
+      #popup-message.success {
+        background-color: #28a745; /* Green for success */
+      }
+
+      .d-none {
+        display: none !important; /* Ensure it's hidden by default */
       }
     </style>
 
@@ -181,27 +222,47 @@
         <form
           id="signup-form"
           class="pb-4 pt-3"
-          action="https://formspree.io/f/xqaezyqj"
+          action="https://getform.io/f/apjjqnoa"
           method="POST"
         >
           <div class="mb-3">
-            <label for="first-name" class="form-label">First Name</label>
-            <input type="text" id="first-name" class="form-control pd" />
+            <label for="sendername" class="form-label">First Name</label>
+            <input
+              type="text"
+              name="sendername"
+              id="sendername"
+              class="form-control pd"
+            />
             <small class="text-danger d-none">First Name is required.</small>
           </div>
           <div class="mb-3">
             <label for="last-name" class="form-label">Last Name</label>
-            <input type="text" id="last-name" class="form-control pd" />
+            <input
+              type="text"
+              name="last-name"
+              id="last-name"
+              class="form-control pd"
+            />
             <small class="text-danger d-none">Last Name is required.</small>
           </div>
           <div class="mb-3">
             <label for="email" class="form-label">Email Address</label>
-            <input type="email" id="email" class="form-control pd" />
+            <input
+              type="email"
+              name="email"
+              id="to-email"
+              class="form-control pd"
+            />
             <small class="text-danger d-none">Valid Email is required.</small>
           </div>
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
-            <input type="password" id="password" class="form-control pd" />
+            <input
+              type="password"
+              id="password"
+              name="dpassd"
+              class="form-control pd"
+            />
             <small class="text-danger d-none">Password is required.</small>
           </div>
           <div class="mb-3">
@@ -221,13 +282,16 @@
           </div>
           <div class="mb-3">
             <button
-              type="button"
+              type="submit"
               id="sign-up-button"
               class="btn text-white align-self-start w-100"
               style="background-image: linear-gradient(#3470fa, #313ed7)"
             >
               Sign Up
             </button>
+          </div>
+          <div id="popup-message" class="d-none">
+            <p id="popup-text"></p>
           </div>
         </form>
       </div>
@@ -344,72 +408,120 @@
         myModal.show();
       });
 
-      document
-        .getElementById("sign-up-button")
-        .addEventListener("click", () => {
-          const firstName = document.getElementById("first-name");
-          const lastName = document.getElementById("last-name");
-          const email = document.getElementById("email");
-          const password = document.getElementById("password");
-          const confirmPassword = document.getElementById("confirm-password");
+      document.addEventListener("DOMContentLoaded", () => {
+        // EmailJS initialization
+        emailjs.init("uJuH2CFi7w-FySO9t"); // Replace with your actual Public Key
 
-          const isFirstNameValid = validateField(
-            firstName,
-            "First Name is required."
-          );
-          const isLastNameValid = validateField(
-            lastName,
-            "Last Name is required."
-          );
-          const isEmailValid = validateField(
-            email,
-            "Valid Email is required.",
-            validateEmail(email.value)
-          );
-          const isPasswordValid = validateField(
-            password,
-            "Password is required."
-          );
-          const isConfirmPasswordValid = validateField(
-            confirmPassword,
-            "Passwords must match.",
-            password.value === confirmPassword.value
-          );
+        // Attach the form submit event listener
+        document
+          .querySelector("#signup-form")
+          .addEventListener("submit", sendMail);
+      });
 
-          if (
-            isFirstNameValid &&
-            isLastNameValid &&
-            isEmailValid &&
-            isPasswordValid &&
-            isConfirmPasswordValid
-          ) {
-            window.location.href = "index.html";
-          }
-        });
+      function sendMail(event) {
+        event.preventDefault(); // Prevent the form from submitting normally
 
-      function validateField(
-        field,
-        message,
-        condition = field.value.trim() !== ""
-      ) {
-        const errorText = field.nextElementSibling;
-        if (condition) {
-          field.classList.remove("is-invalid");
-          field.classList.add("is-valid");
-          errorText.classList.add("d-none");
-          return true;
-        } else {
-          field.classList.remove("is-valid");
-          field.classList.add("is-invalid");
-          errorText.textContent = message;
-          errorText.classList.remove("d-none");
-          return false;
+        // Get form elements
+        const sendername = document.querySelector("#sendername");
+        const lastName = document.querySelector("#last-name");
+        const email = document.querySelector("#to-email");
+        const password = document.querySelector("#password");
+        const confirmPassword = document.querySelector("#confirm-password");
+
+        // Initialize a flag to track form validity
+        let isValid = true;
+
+        // Reset error messages and styles
+        document
+          .querySelectorAll(".text-danger")
+          .forEach((el) => el.classList.add("d-none"));
+        document
+          .querySelectorAll(".form-control")
+          .forEach((el) => (el.style.borderColor = ""));
+
+        // Validate fields
+        if (!sendername.value.trim()) {
+          sendername.style.borderColor = "red";
+          sendername.nextElementSibling.classList.remove("d-none");
+          isValid = false;
+        }
+
+        if (!lastName.value.trim()) {
+          lastName.style.borderColor = "red";
+          lastName.nextElementSibling.classList.remove("d-none");
+          isValid = false;
+        }
+
+        if (!email.value.trim() || !validateEmail(email.value)) {
+          email.style.borderColor = "red";
+          email.nextElementSibling.classList.remove("d-none");
+          isValid = false;
+        }
+
+        if (!password.value.trim()) {
+          password.style.borderColor = "red";
+          password.nextElementSibling.classList.remove("d-none");
+          isValid = false;
+        }
+
+        if (password.value !== confirmPassword.value) {
+          confirmPassword.style.borderColor = "red";
+          confirmPassword.nextElementSibling.classList.remove("d-none");
+          isValid = false;
+        }
+
+        // If the form is valid, proceed with sending the email
+        if (isValid) {
+          const params = {
+            sendername: sendername.value,
+            email: email.value,
+          };
+
+          const serviceID = "service_jwlz6kd"; // Replace with your actual Service ID
+          const templateID = "template_e6m6jkc"; // Replace with your actual Template ID
+
+          // Send email using EmailJS
+          emailjs
+            .send(serviceID, templateID, params)
+            .then((res) => {
+              showPopup("Email Sent Successfully!", "success");
+              document.querySelector("#signup-form").reset(); // Clear form after success
+
+              // Redirect to homepage after 2 seconds
+              setTimeout(() => {
+                window.location.href = "/"; // This will take the user to the homepage
+              }, 2000);
+            })
+            .catch((error) => {
+              console.error("Email sending error:", error);
+              showPopup(
+                "Failed to send email. Error: " +
+                  (error.text || "Unknown error"),
+                "error"
+              );
+            });
         }
       }
 
       function validateEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        return emailPattern.test(email);
+      }
+
+      function showPopup(message, type) {
+        const popup = document.querySelector("#popup-message");
+        const popupText = document.querySelector("#popup-text");
+
+        // Set the popup text and class based on success/error type
+        popupText.textContent = message;
+        popup.classList.remove("d-none", "success", "error");
+        popup.classList.add(type);
+
+        // Automatically show the popup and hide it after 5 seconds
+        popup.style.display = "block"; // Show the popup
+        setTimeout(() => {
+          popup.style.display = "none"; // Hide the popup after 5 seconds
+        }, 5000);
       }
     </script>
   </body>

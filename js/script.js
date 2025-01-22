@@ -39,7 +39,25 @@ function showPopup(message, type) {
 document
   .getElementById("subscribeForm")
   .addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent form from submitting and page refresh
+    event.preventDefault();
+
+    const emailInput = document.getElementById("email").value;
+
+    if (!emailInput) {
+      showPopup("Please enter a valid email address!", "error");
+      return;
+    }
+
+    showPopup("Thank you for subscribing!", "success");
+
+    const form = document.getElementById("subscribeForm");
+    form.submit();
+  });
+
+document
+  .getElementById("subscribeForm")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
   });
 
 //for auto tupe
@@ -106,4 +124,67 @@ navLinks.forEach((link) => {
     });
     bsCollapse.hide();
   });
+});
+// Ensure the script runs after DOM is fully loaded
+document.addEventListener("DOMContentLoaded", function () {
+  const subscribeForm = document.getElementById("subscribeForm");
+  const popup = document.getElementById("popup");
+
+  // Add event listener for form submission
+  subscribeForm.addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent default form submission
+
+    const emailInput = document.getElementById("email").value.trim();
+
+    // Validate email format and Gmail domain
+    if (!validateEmail(emailInput)) {
+      showPopup("Please enter a valid Gmail address!", "error");
+      return;
+    }
+
+    // Send email using EmailJS
+    sendMail(emailInput)
+      .then(() => {
+        showPopup("Subscription successful! Email sent.", "success");
+
+        // Clear the input field
+        document.getElementById("email").value = "";
+
+        // Optional: Redirect to another page (comment this if not needed)
+        // window.location.href = "index.html";
+      })
+      .catch((err) => {
+        showPopup("Failed to send email. Please try again.", "error");
+        console.error("Email sending error:", err);
+      });
+  });
+
+ 
+  function showPopup(message, type) {
+    popup.textContent = message;
+    popup.className = `popup-message ${type}`;
+    popup.style.display = "block";
+
+    setTimeout(() => {
+      popup.style.display = "none";
+    }, 5000);
+  }
+
+  function validateEmail(email) {
+    const emailRegex = /^[^\s@]+@gmail\.com$/; 
+    return emailRegex.test(email);
+  }
+
+  function sendMail(email) {
+    emailjs.init("uJuH2CFi7w-FySO9t");
+
+    const params = {
+      email: email,
+    };
+    
+    const serviceID = "service_jwlz6kd";
+    const templateID = "template_p6re3bb";
+
+    return emailjs.send(serviceID, templateID, params);
+  }
 });
