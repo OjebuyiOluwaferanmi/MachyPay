@@ -328,52 +328,6 @@
         );
         myModal.show();
       });
-
-      document
-        .getElementById("sign-in-button")
-        .addEventListener("click", () => {
-          // Get email and password fields
-          const email = document.getElementById("email");
-          const password = document.getElementById("password");
-
-          const isEmailValid = validateField(
-            email,
-            "Valid Email is required.",
-            validateEmail(email.value)
-          );
-          const isPasswordValid = validateField(
-            password,
-            "Password is required."
-          );
-
-          if (isEmailValid && isPasswordValid) {
-            window.location.href = "index.html";
-          }
-        });
-
-      function validateField(
-        field,
-        message,
-        condition = field.value.trim() !== ""
-      ) {
-        const errorText = field.nextElementSibling;
-        if (condition) {
-          field.classList.remove("is-invalid");
-          field.classList.add("is-valid");
-          errorText.classList.add("d-none");
-          return true;
-        } else {
-          field.classList.remove("is-valid");
-          field.classList.add("is-invalid");
-          errorText.textContent = message;
-          errorText.classList.remove("d-none");
-          return false;
-        }
-      }
-      function validateEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-      }
     </script>
   </body>
 </html>
